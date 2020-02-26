@@ -1,5 +1,6 @@
 import { UnavailabilityError } from '@unimodules/core';
 import ExpoFirebaseAnalytics from './ExpoFirebaseAnalytics';
+import FirebaseAnalyticsJS from './FirebaseAnalyticsJS';
 if (!ExpoFirebaseAnalytics) {
     console.warn("No native ExpoFirebaseAnalytics module found, are you sure the expo-firebase-analytics's module is linked properly?");
 }
@@ -158,5 +159,31 @@ export function setUnavailabilityLogging(isEnabled) {
         throw new UnavailabilityError('expo-firebase-analytics', 'setUnavailabilityLogging');
     }
     ExpoFirebaseAnalytics.setUnavailabilityLogging(isEnabled);
+}
+/**
+ * Creates a Firebase Analytics JavaScript client for the given
+ * web configuration.
+ *
+ * @param config Firebase web configuration (`measurementId` is required)
+ * @param options Additional options
+ *
+ * @example
+ *
+ * ```js
+ * const analytics = Analytics.createJSClient({
+ *   measurementId: 'G-XXXXXXXXXX',
+ * }, {
+ *   clientId: Constants.sessionId,
+ *   strictNativeEmulation: true,
+ *   maxCacheTime: 10000
+ * });
+ *
+ * analytics.logEvent('hero_spotted', {
+ *   hero_class: 'B'
+ * });
+ * ```
+ */
+export function createJSClient(config, options) {
+    return new FirebaseAnalyticsJS(config, options);
 }
 //# sourceMappingURL=Analytics.js.map

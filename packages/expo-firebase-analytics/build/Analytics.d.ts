@@ -1,3 +1,5 @@
+import FirebaseAnalyticsJS from './FirebaseAnalyticsJS';
+import { FirebaseAnalyticsJSConfig, FirebaseAnalyticsJSOptions } from './FirebaseAnalyticsJS.types';
 /**
  * Logs an app event. The event can have up to 25 parameters. Events with the same name must have
  * the same parameters. Up to 500 event names are supported. Using predefined events and/or
@@ -116,3 +118,27 @@ export declare function setUserProperties(properties: {
  * @param properties key/value set of user properties
  */
 export declare function setUnavailabilityLogging(isEnabled: boolean): void;
+/**
+ * Creates a Firebase Analytics JavaScript client for the given
+ * web configuration.
+ *
+ * @param config Firebase web configuration (`measurementId` is required)
+ * @param options Additional options
+ *
+ * @example
+ *
+ * ```js
+ * const analytics = Analytics.createJSClient({
+ *   measurementId: 'G-XXXXXXXXXX',
+ * }, {
+ *   clientId: Constants.sessionId,
+ *   strictNativeEmulation: true,
+ *   maxCacheTime: 10000
+ * });
+ *
+ * analytics.logEvent('hero_spotted', {
+ *   hero_class: 'B'
+ * });
+ * ```
+ */
+export declare function createJSClient(config: FirebaseAnalyticsJSConfig, options: FirebaseAnalyticsJSOptions): FirebaseAnalyticsJS;
