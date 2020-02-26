@@ -307,6 +307,37 @@ Analytics.setUnavailabilityLogging(false);
 ```
 
 
+### createJSClient
+
+```ts
+createJSClient(config: object, options: object): FirebaseAnalyticsJS;
+```
+
+Creates a Firebase Analytics JavaScript client for recording events to other Firebase project.
+
+#### Parameters
+
+| Name    | Type     | Description                                                                                                                                                      |
+| ------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| config  | `object` | Firebase web configuration (`measurementId` is required)                                                                                                         |
+| options | `object` | Additional options [(see FirebaseAnalyticsJS.types)](https://github.com/expo/expo/blob/master/packages/expo-firebase-analytics/src/FirebaseAnalyticsJS.types.ts) |
+
+#### Example
+
+```ts
+const analytics = Analytics.createJSClient({
+  measurementId: 'G-XXXXXXXXXX',
+}, {
+  clientId: Constants.sessionId,
+  strictNativeEmulation: true,
+  maxCacheTime: 10000
+});
+
+analytics.logEvent('hero_spotted', {
+  hero_class: 'B'
+});
+```
+
 # Examples
 
 ## How do people use my app?
