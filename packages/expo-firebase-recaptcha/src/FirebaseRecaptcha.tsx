@@ -58,7 +58,7 @@ function getWebviewSource(firebaseConfig: IFirebaseOptions, firebaseVersion?: st
       }));
     }
   </script>
-  <script src="https://www.google.com/recaptcha/api.js?onload=onLoad&render=explicit" onerror="onError()"></script>
+  <script src="https://www.google.com/recaptcha/api.js?onload=onLoad&render=explicit&hl=es" onerror="onError()"></script>
 </body></html>`,
   };
 }
@@ -96,7 +96,7 @@ export default function FirebaseRecaptcha(props: Props) {
       mixedContentMode="always"
       source={getWebviewSource(firebaseConfig, firebaseVersion)}
       onError={onError}
-      onMessage={event => {
+      onMessage={(event) => {
         const data = JSON.parse(event.nativeEvent.data);
         switch (data.type) {
           case 'load':
