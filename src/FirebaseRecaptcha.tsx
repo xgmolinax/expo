@@ -57,7 +57,7 @@ function getWebviewSource(firebaseConfig: IFirebaseOptions, firebaseVersion?: st
       }));
     }
   </script>
-  <script src="https://www.google.com/recaptcha/api.js?onload=onLoad&render=explicit" onerror="onError()"></script>
+  <script src="https://www.google.com/recaptcha/api.js?onload=onLoad&render=explicit&hl=es" onerror="onError()"></script>
 </body></html>`,
   };
 }
