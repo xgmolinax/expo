@@ -25,8 +25,16 @@ function getWebviewSource(firebaseConfig: IFirebaseOptions, firebaseVersion?: st
   <script src="https://www.gstatic.com/firebasejs/${firebaseVersion}/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/${firebaseVersion}/firebase-auth.js"></script>
   <script type="text/javascript">firebase.initializeApp(${JSON.stringify(firebaseConfig)});</script>
+  <style>
+  .recaptcha {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  </style>
 </head>
-<body>
+<body class="recaptcha">
   <div id="recaptcha-cont" class="g-recaptcha"></div>
   <script>
     function onLoad() {
